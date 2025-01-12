@@ -1,0 +1,1 @@
+# funkcja licząca czas (funkcja sortująca, lista do posortowania)
