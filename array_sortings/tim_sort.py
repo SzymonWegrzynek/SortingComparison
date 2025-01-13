@@ -13,6 +13,8 @@ def tim_sort(arr):
 			merge(arr, start, mid, end)
 		size *= 2
 
+	return arr
+
 
 def insertion_sort(arr, left, right):
 	for i in range(left + 1, right + 1):

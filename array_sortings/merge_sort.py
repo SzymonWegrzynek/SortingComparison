@@ -1,6 +1,5 @@
 def merge_sort(arr):
 	def merge(left, right):
-		
 		i, j, k = 0, 0, 0
 		
 		while i < len(left) and j < len(right):
@@ -31,3 +30,5 @@ def merge_sort(arr):
 		merge_sort(right)
 		
 		merge(left, right)
+	
+	return arr
