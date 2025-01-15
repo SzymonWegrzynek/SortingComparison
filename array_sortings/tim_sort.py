@@ -27,23 +27,30 @@ def insertion_sort(arr, left, right):
 
 
 def merge(arr, start, mid, end):
-	if mid == end:
-		return  
-	merged_arr = []
-	left_idx = start
-	right_idx = mid + 1
-	while left_idx <= mid and right_idx <= end:
-		if arr[left_idx] < arr[right_idx]:
-			merged_arr.append(arr[left_idx])
-			left_idx += 1
-		else:
-			merged_arr.append(arr[right_idx])
-			right_idx += 1
-	while left_idx <= mid:
-		merged_arr.append(arr[left_idx])
-		left_idx += 1
-	while right_idx <= end:
-		merged_arr.append(arr[right_idx])
-		right_idx += 1
-	for i, sorted_item in enumerate(merged_arr):
-		arr[start + i] = sorted_item  
+    if start > mid or mid > end:
+        return
+
+    left = arr[start:mid + 1]
+    right = arr[mid + 1:end + 1]
+
+    left_idx, right_idx = 0, 0
+    sorted_idx = start
+
+    while left_idx < len(left) and right_idx < len(right):
+        if left[left_idx] <= right[right_idx]:
+            arr[sorted_idx] = left[left_idx]
+            left_idx += 1
+        else:
+            arr[sorted_idx] = right[right_idx]
+            right_idx += 1
+        sorted_idx += 1
+
+    while left_idx < len(left):
+        arr[sorted_idx] = left[left_idx]
+        left_idx += 1
+        sorted_idx += 1
+
+    while right_idx < len(right):
+        arr[sorted_idx] = right[right_idx]
+        right_idx += 1
+        sorted_idx += 1
